@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... strings) {
             String jsonFeed = downloadJson(strings[0]);
             if (jsonFeed == null) {
-                Toast.makeText(MainActivity.this, "Erro ao baixar arquivo", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "DownloadError", Toast.LENGTH_SHORT).show();
             }
             return jsonFeed;
         }
@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 return json.toString();
 
             } catch (MalformedURLException e) {
-                Toast.makeText(MainActivity.this, "URL é inválida", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Invalid URL", Toast.LENGTH_SHORT).show();
             } catch (IOException e) {
-                Toast.makeText(MainActivity.this, "Ocorreu um erro de IO ao baixar dados", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "IO Error In Download", Toast.LENGTH_SHORT).show();
             }
             return null;
         }

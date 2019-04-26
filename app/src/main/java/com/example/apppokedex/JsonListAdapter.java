@@ -48,8 +48,9 @@ public class JsonListAdapter extends ArrayAdapter {
         JsonEntry appAtual = aplicativos.get(position);
 
         viewHolder.tvNome.setText(appAtual.getNome());
-        viewHolder.tvArtista.setText(appAtual.getHeight());
-        viewHolder.tvData.setText(appAtual.getWeight());
+        viewHolder.tvAltura.setText(appAtual.getHeight());
+        viewHolder.tvPeso.setText(appAtual.getWeight());
+        viewHolder.tvNum.setText(appAtual.getNum());
 
         try {
             new DownloadImageTask(viewHolder.ivAppImg).execute(appAtual.getImgUrl().replace("http", "https")).get();
@@ -64,14 +65,16 @@ public class JsonListAdapter extends ArrayAdapter {
 
     private class ViewHolder {
         final TextView tvNome;
-        final TextView tvArtista;
-        final TextView tvData;
+        final TextView tvAltura;
+        final TextView tvPeso;
         final ImageView ivAppImg;
+        final TextView tvNum;
 
         ViewHolder(View v) {
             this.tvNome = v.findViewById(R.id.tvNome);
-            this.tvArtista = v.findViewById(R.id.tvArtista);
-            this.tvData = v.findViewById(R.id.tvData);
+            this.tvAltura = v.findViewById(R.id.tvAltura);
+            this.tvPeso = v.findViewById(R.id.tvPeso);
+            this.tvNum = v.findViewById(R.id.tvNum);
             this.ivAppImg = v.findViewById(R.id.ivAppImg);
         }
     }
