@@ -1,8 +1,11 @@
 package com.example.apppokedex;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -33,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
 
         DownloadDeDados downloadDeDados = new DownloadDeDados();
         downloadDeDados.execute("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json");
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                Intent intent=new Intent(MainActivity.this, list_complex_item.class);
+                ((Intent) intent).putExtra("pokemon",listaPokemon.get(position).toString());
+                startActivity(intent);
+            }
+        });
     }
 
 

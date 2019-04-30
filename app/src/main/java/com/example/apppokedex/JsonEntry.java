@@ -40,5 +40,10 @@ public class JsonEntry {
     public String getWeight() {
         return weight;
     }
+
+    @Override
+    public String toString() {
+        return num + ';' + nome + ';' + imgUrl + ';' + height + ';' + weight;
+    }
 }
 
